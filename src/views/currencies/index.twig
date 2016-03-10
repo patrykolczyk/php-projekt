@@ -1,0 +1,27 @@
+{% extends 'base.twig' %}
+
+{% block title %}Kursy walut{% endblock %}
+
+{% block content %}
+
+	<h1>KURSY WALUT</h1>
+	<table>
+	  <thead>
+	    <tr>
+	      <th>Nazwa waluty</th>
+	      <th>Kod waluty</th>
+	    </tr>
+	  </thead>
+	  <tbody>
+	    {% for row in data %}
+	      <tr>
+		  <td>{{ row.nazwa_waluty|upper }}</td> 
+		  <td><center><a href="{{ url('/currencies/view',
+			       {'kod_waluty': row.kod_waluty}) }}">
+				{{ row.kod_waluty|e }}</a></center></td>
+	      </tr>
+	    {% endfor %}
+	  </tbody>
+	</table>
+	</ul>
+{% endblock %}

@@ -1,0 +1,32 @@
+{# Delete action template for Categories controller #}
+{% extends 'base.twig' %}
+
+{% block title %}{{  'Delete category'|trans }}{% endblock %}
+
+{% block head %}
+     {{ parent() }}
+    <style type="text/css">
+        body { margin: 20px; }
+    </style>
+{% endblock %}
+
+{% block content %}
+    {% if counter > 0 %}
+        <h1>
+            {{ 'Delete category'|trans }}
+        </h1>
+        <p>Nie możesz usunąć kategorii, gdyż jest już przypisana do jakiegoś albumu.<br>
+        <input type="submit" disabled="disabled" class="btn btn-success" name="submit" value="{{ 'Delete'|trans }}" />
+        <a href="{{ url('categories_index') }}" class="btn btn-danger" >{{ 'Go to main'|trans }}</a>
+    {% else %}
+        <h1>
+            {{ 'Delete category'|trans }}
+        </h1>
+        <form action="{{ url('categories_delete', {'id':id}) }}" method="post">
+            {{ form_widget(form) }}
+            <p>Jesteś pewien, że chcesz usunąć wybrana kategorie?</p>
+            <input type="submit" class="btn btn-success" name="submit" value="{{ 'Yes'|trans }}" />
+	    <a href="{{ url('categories_index') }}" class="btn btn-danger" >{{ 'NOPE!'|trans }}</a>
+        </form>
+    {% endif %}
+{% endblock %}

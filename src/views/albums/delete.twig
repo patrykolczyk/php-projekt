@@ -1,0 +1,23 @@
+{# Delete action template for Albums controller #}
+{% extends 'base.twig' %}
+
+{% block title %}{{  'Delete album'|trans }}{% endblock %}
+
+{% block head %}
+     {{ parent() }}
+    <style type="text/css">
+        body { margin: 20px; }
+    </style>
+{% endblock %}
+
+{% block content %}
+    <h1>
+        {{ 'Delete album'|trans }}
+    </h1>
+    <form action="{{ url('albums_delete', {'id':id}) }}" method="post">
+        {{ form_widget(form) }}
+	<p>Jesteś pewien, że chcesz usunąć wybrany album?</p>
+        <input type="submit" class="btn btn-success" name="submit" value="{{ 'Yes'|trans }}" />
+	<a href="{{ url('albums_index') }}" class="btn btn-danger" >{{ 'NOPE!'|trans }}</a>
+    </form>
+{% endblock %}

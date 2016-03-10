@@ -1,0 +1,18 @@
+{% extends 'base.twig' %}
+
+{% block title %}{{ item.nazwa_waluty }}{% endblock %}
+
+{% block content %}
+    {% if item|length > 0 %}
+	<h1>{{ item.nazwa_waluty|e|upper }}</h1>
+	<p>
+	nazwa waluty: {{ item.nazwa_waluty }}<br>
+	kod waluty: {{ item.kod_waluty }}<br>
+	przelicznik: {{ item.przelicznik }}<br>
+	srednik kurs: {{ item.kurs_sredni }}<br><br><br>
+	<a href="{{ url('/currencies') }}">POWRÓT NA STRONĘ GŁÓWNĄ</a>
+    {% else %}
+        Invalid data.
+    {% endif %}
+	</p>
+{% endblock %}

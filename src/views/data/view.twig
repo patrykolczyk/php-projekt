@@ -1,0 +1,8 @@
+<p>
+    {% if item|length > 0 %}
+	<h1>{{ item.name|upper }}</h1>
+	{{ item.email|e }}
+    {% else %}
+        Invalid data.
+    {% endif %}
+</p>

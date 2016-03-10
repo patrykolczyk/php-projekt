@@ -1,0 +1,14 @@
+{# Edit action template for Albums controller #}
+{% extends 'base.twig' %}
+
+{% block title %}{{  'Edit album'|trans }}{% endblock %}
+
+{% block content %}
+    <h1>
+        {{ 'Edit album'|trans }}
+    </h1>
+    <form action="{{ url('albums_edit', {'id':id}) }}" method="post">
+        {{ form_widget(form) }}
+        <input class="btn btn-default" type="submit" name="submit" value="{{ 'Save'|trans }}" />
+    </form>
+{% endblock %}

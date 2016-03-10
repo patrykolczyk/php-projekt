@@ -1,0 +1,19 @@
+{# Add action template for Photos controller #}
+{% extends 'base.twig' %}
+
+{% block title %}{{ 'Upload file'|trans }}{% endblock %}
+
+{% block content %}
+    <h1>
+        {{ 'Upload file'|trans }}
+    </h1>
+    {% for flashMessage in app.session.getFlashBag.get('message') %}
+        <div class="alert alert-{{ flashMessage.type }}">
+            {{ flashMessage.content }}
+        </div>
+    {% endfor %}
+    <form action="{{ url('photos_add') }}" {{ form_enctype(form) }} method="post">
+        {{ form_widget(form) }}
+        <input type="submit" name="submit" value="{{ 'Save'|trans }}" />
+    </form>
+{% endblock %}

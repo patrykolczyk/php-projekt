@@ -1,0 +1,7 @@
+<h1>Data</h1>
+<ul>
+    {% for row in data %}
+        <li><a href="{{ url('/data/view', {'id': loop.index0}) }}">
+	{{ row.name|upper }}</a>, {{ row.email|e }}</li>
+    {% endfor %}
+</ul>

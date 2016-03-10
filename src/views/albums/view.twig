@@ -1,0 +1,18 @@
+{% extends 'base.twig' %}
+
+{% block title %}{{ album.artist }} - {{ album.title }}{% endblock %}
+
+{% block head %}
+     {{ parent() }} 
+    <style type="text/css">
+        body { margin: 20px; }
+	a { position:absolute; bottom:0}
+    </style>
+{% endblock %}
+
+{% block content %}
+<h1>{{ album.title }}</h1>
+<big>{{ album.artist }}</big><br>
+<small>{{ album.name }}</small><br><br><br><br>
+<a href="{{ url('albums_index') }}" >POWRÓT NA POPRZEDNIĄ STRONĘ</a>
+{% endblock %}
